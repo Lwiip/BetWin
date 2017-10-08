@@ -1,0 +1,13 @@
+L'installation se fera de la manière suivante :
+
+* Initialisation de la base de données :
+- Créer dans phpmyadmin une base de données nommée g7 (notre groupe est le n°7)
+- Selectionner cette base et importer le fichier g7.sql extrait de g7.zip
+
+* Installation du site web :
+- Aller à la racine de votre serveur web
+(par exemple par défaut sur système de la famille Debian : /var/www/html, sinon vérifier les paramètres de votre serveur : pour apache dans /etc/apache2/ en vérifiant apache2.conf, sites-available...etc)
+- Extraire le "dossier" betwin (le dossier avec son contenu) à la racine de votre serveur web
+
+* Acces à la page d'acceuil :
+Accéder à l'interface publique de l'applicatione web en accédant, dans le browser, à : localhost/betwin/public/index.php (ou directement localhost/betwin/public/)
