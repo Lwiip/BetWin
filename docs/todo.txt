@@ -1,0 +1,227 @@
+﻿----------------------------------------------------------
+Notes:
+
+useful commands:
+git ls-tree --full-tree -r HEAD
+
+some tips to follow:
+good habit to omit closing tags "?>" in php
+redirects with header php : always absolute links and before any output of html!
+
+
+-----------------------------------------------------------
+Current:
+
+1 - sanatize all user input :
+    * when interacting with SQL : Prepared Statements with parametered queries better, (other: escape)
+    * when interacting with html : htmlspecialchars
+    ( execute php embedded user input (eval...etc) )
+
++ form validation client side, do all
+
+cf. is it better : $this cached always rather than $(this) when doing clicks
+
+2 - adpater la page register.php
+    adpater la pgae login
+2 - make navbar active buttons when on page...etc
+2 - maybe regroup all button show hide forms into unique kinda polymorphic function
+alert('the selector is :' + $(this).attr("id")) then string operations
+
+4 - redo all button, forms controls to boostrap style with divs and addon glyphicon...etc
+
+
+Last - code refactoring : perfect beauty
+controller / viewer / css
+indentation, spaces in ( ) ...etc
++ decompose big codes of modules to: cf. profile_info...etc and include them -> clearer or not?
+
+----------------------------------------------------------
+Some details:
+
+6 - change team name which_team -> to team id : 1 or 2 -> simplifies all, just modify profile history to link id to name ok
+    idem adapt all code to use id_user...etc
+
+- integrate after_register.php inside register.php directly
+
+- refresh partial, little bug : duplicates tags, make custom refresh
+
+- verify again formula of odds management, the one from professor not good, better : x0 + 1/(ratio...etc)
+
+- place all other files (sujet, todo...etc) in special directory
+
+- prendre une convention : tout en anglais code + text (ou en français [not good, because we aim: international], ou les 2 avec possibilité de changement de langue..etc) ? [IMPORTANT] conventions in coding, in names...etc
++ convention in coding : use a design pattern such as MVC (ok no need of frameworks such as cakephp or symphony, this is a simple website)
+after explanation : we reorganize our files in directories, cf. git pb with erase...etc otherwise
++ use a config.php used in all the files
+will define the password to database, database...etc with constants DEFINE for filename_paths...etc
+=> OK : all code = english
+        language of the website : we will think about it later
+
+- MD5 : NOT SECURE, use SHA-1 or SHA-2 cf. hash function in php
+
+- Do we use DIR_ROOT and URL_ROOT absolute types or directly by relative links (if relative THEN need to do all regarding betwin/public/ thus plenty of ../../ etc) otherwise links not valid
+
+- Do we open connection to database for each page or is there a more efficient way?
+
+- Do we use a user_id?? Because username already unique thus username = can be an id primary key already (simplifies the relation with bets table history)
+=> OK we use user_id so that everything is uniform : events id, user id ...etc
+
+- always free_result // mysqli when doing a loop to go over all rows...etc
+
+- in bets table, events...etc : odds is not INT, it must be a FLOAT
+
+- in bets table : add more columns for more information : date the bet was made...etc
+
+- Add possibility of modifying our personal imformations  in the page " the profile "
+
+- do in pixel or em?
+
+- better custom refresh manual post ajax or using jquery load OK cf. case where several ones .money_current, with #money_reference
+
+- clean input boxes after OK submit, cancel...etc
+
+- transparant orginal navbar
+
+- use requirejs as javascript loader
+
+- change some include_once to require...etc
+
+- validate all pages with W3C, javascript, css, php...etc
+
+- do "hey come back" when tab not focus
+---------------------------------------------------------------------
+Little bugs:
+
+- in firebug after refresh money current, two spans appear ok
+
+---------------------------------------------------------------------
+Final:
+
+change connection to database : root, no password...etc in connect_db.php for the professor
+
+
+----------------------------------------------------------
+Bonus:
+- Fonction de recherche des paris par mots-clés, par catégories de sport (+++)
+— Enregistrer des paris en favoris. (++)
+— Upload de photo pour le profil de l’utilisateur (++) l
+— Liens utiles (aide dépendance au jeu, etc). (+) ok
+— Utilisation de JavaScript pour la vérification des données, champs, etc. (++++) l
+
+
+Ideas:
+
+- use zxcvbn open source password strength verifyer
+https://github.com/dropbox/zxcvbn
+compile ok, integrate in project, ajax verifying password strength during registration or password modification in real time (ajax)
+
+- add tabs to separate content for example in profile page (javascript, bootstrap)
+http://www.w3schools.com/bootstrap/bootstrap_ref_js_tab.asp
+
+- make a timeout of the session after a certain amount of time
+
+- add chat system in profile page? or another page? (inbox, messages between users...etc, cf. possible to send special messages to client to promote an event...etc)
+
+- make html5 mini-games (foot, basket...etc) in html5 / canvas / nodejs
+to wait before the start of the event
+or/and youtube embedded videos on similar subject (football/basketball)
+
+- algorithm to leech news of events on good website (+ images...etc)
+
+- possible to register using facebook, gmail account
+
+- make javascript + AJAX : verifying during registration if username already used in database...etc automatically
++ see where we can put some AJAX anywhere else
+
+- make an image with design++ : BetWin = Bet & Win
+
+- put htaccess file to route the request to index.php or okay depending on directory structure design
+
+- add favicon
+add sitemap.xml for web crawlers
+add google analytics for making statistics on bets, users...etc + maybe include algorithm to maximize profit
+see if it's possible to simulate HTTPS SSL + Security Certificate
+add integration with social media : twitter, facebook, pininterest...etc cf. icons to share shit, twitter live embedded stream of tweets from your favorite teams, athletes...etc
+
+- SEO-Friendly Site URL : ranks higher in web indexing, web crawlers
+we can say this : to get bonus
+
+- confirm email after registration?:
+
+pour l'instant je vais continuer a coder tout d'un coup, j'ai pas envie de casser ce que je fais^^ On mettra tout ça sous forme mvc ensemble si ça te va ! Je vais faire add_bet.php pour créer un nouveau paris avec un formulaire. On pourra protéger cette page avec un mpd spécial.
+Il faudrait finir la connexion pour pouvoir vraiment s'occuper des paris.
+
+- make all odds on events page : dynamic with timer so that if there is update -> refresh those elements
+
+- doxygen commenting system
+
+- hamburger menu? menu nav responsive adapt dynamic if connected or not
+* menu not connect : features, ...etc
+* menu connected : profile...etc
+
+-Add google map bordeaux in help or About
+
+- Add animation with money coins : the more you have money, the more coins appear + other objects, jewelry...etc
++ cf. rewards, like badge of best better, golden ball...etc
+
+-Changer la navbar quand on est connecté (Enlever login et mettre a la place Bonjour "Name" + afficher l'argent disponible par exemple)
+
+- use php apache mod_rewrite module to rewrite URL -> security, elegant, easier for users : user friendly
+(cf. httaccess...etc)
+
+- chat system with persons online or staff
+or/and private messages inbox
+
+- json files
+
+- use https cf. form submission when logging, regsitration...etc
++ configure all security htaccess...etc
+
+- captcha
+
+- Fading with jquery
+
+- make a safe pictures directory
+
+---------------------------------------
+ARCHITECTURE
+
+1 - DESIGN WE MUST DO : REORGANIZE ALL IN THOSE DIRECTORIES : (MVC style / No modules ok simple project)
+(MVC architecture, inspiration from laravel, zend framework, symphony, cakePHP...etc)
+(often use Object-Oriented but OK we will do functional to respect rules of sujet)
+
+app:
+  config:
+    *all config files, constants?...etc*
+  *all pages ok*
+  controller:
+  model:
+    * for example *
+    create.php
+    read.php
+    update.php
+    delete.php
+    ...etc
+  view:
+
+public:
+  index.php
+  * all our .php files linking to the controllers *
+  images:
+    *maybe do other sub-directories*
+    background.png
+    logo.png
+    ...etc all static things
+  css:
+    *all files here ok*
+  javascript:
+    *all files here ok*
+  assets:
+    pictures:
+    videos:
+    pdfs:
+  [content: maybe later if we have time otherwise ok no need (text, articles,...etc)]
+vendor:
+  bootstrap
+  jquery
+  ...etc

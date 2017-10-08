@@ -1,0 +1,17 @@
+.form-horizontal {
+  margin-top: 7%;
+}
+
+h2 {
+  padding-left: 17%;
+}
+
+#non_obligatoire {
+  padding-left: 17%;
+}
+
+#return {
+  padding-left: 17%;
+  font-size: 120%;
+  color: red;
+}
